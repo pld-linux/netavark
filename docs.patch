@@ -1,0 +1,45 @@
+From 97e90a303051d19469ac474b8877620b1354168f Mon Sep 17 00:00:00 2001
+From: Paul Holzinger <pholzing@redhat.com>
+Date: Wed, 14 Dec 2022 16:06:29 +0100
+Subject: [PATCH] fix make docs
+
+Regression caused by 011f899919c9. We only want to build actual man
+pages of course and not general docs.
+This commit fixes the wildcard target to only use the `.1.md` files
+instead of all markdown files.
+Also add the step to the validate target to make sure CI tests this
+target.
+
+Fixes #524
+
+Signed-off-by: Paul Holzinger <pholzing@redhat.com>
+---
+ Makefile      | 1 +
+ docs/Makefile | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 93f1258e..abf61c0e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -101,6 +101,7 @@ integration: $(CARGO_TARGET_DIR)
+ validate: $(CARGO_TARGET_DIR)
+ 	cargo fmt --all -- --check
+ 	cargo clippy -p netavark -- -D warnings
++	$(MAKE) docs
+ 
+ .PHONY: vendor-tarball
+ vendor-tarball: build install.cargo-vendor-filterer
+diff --git a/docs/Makefile b/docs/Makefile
+index 29a15131..112e0ab2 100644
+--- a/docs/Makefile
++++ b/docs/Makefile
+@@ -3,7 +3,7 @@ DATADIR ?= ${PREFIX}/share
+ MANDIR ?= $(DATADIR)/man
+ MANDOWN ?= $(shell export PATH; command -v mandown)
+ 
+-docs: $(patsubst %.md,%,$(wildcard *.md))
++docs: $(patsubst %.md,%,$(wildcard *.1.md))
+ 
+ %.1: %.1.md
+ 	$(MANDOWN) $< > $@
