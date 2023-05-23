@@ -1,17 +1,17 @@
 Summary:	Container network stack
 Name:		netavark
-Version:	1.4.0
+Version:	1.6.0
 Release:	1
 License:	Apache v2.0
 Group:		Applications/System
 Source0:	https://github.com/containers/netavark/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	b818749229983952abfcc5c172636609
+# Source0-md5:	d74d976ff73153cd398853a8b114ea9d
 Source1:	https://github.com/containers/netavark/releases/download/v%{version}/%{name}-v%{version}-vendor.tar.gz
-# Source1-md5:	6f4d384c90c043cd9eff063b44d15ce9
-Patch0:		docs.patch
+# Source1-md5:	7d50dcc38f030c28389a86eed4a753f3
 URL:		https://github.com/containers/netavark
 BuildRequires:	cargo
 BuildRequires:	mandown
+BuildRequires:	protobuf
 BuildRequires:	rpmbuild(macros) >= 2.004
 BuildRequires:	rust
 Suggests:	aardvark-dns
@@ -34,7 +34,6 @@ Its features include:
 
 %prep
 %setup -q -a1
-%patch0 -p1
 
 # use our offline registry
 export CARGO_HOME="$(pwd)/.cargo"
