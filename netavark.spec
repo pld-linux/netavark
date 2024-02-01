@@ -1,13 +1,13 @@
 Summary:	Container network stack
 Name:		netavark
-Version:	1.10.1
+Version:	1.10.2
 Release:	1
 License:	Apache v2.0
 Group:		Applications/System
 Source0:	https://github.com/containers/netavark/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	de77bc59ea111101b5dec0741e6b7133
+# Source0-md5:	31848142b6cf53f3b22036fcc5db535d
 Source1:	https://github.com/containers/netavark/releases/download/v%{version}/%{name}-v%{version}-vendor.tar.gz
-# Source1-md5:	733fcafed6f78f5a8cd27d5a51485e10
+# Source1-md5:	3bb689c7e24325a91c431f64e6608b8d
 URL:		https://github.com/containers/netavark
 BuildRequires:	cargo
 BuildRequires:	go-md2man
@@ -26,8 +26,7 @@ Its features include:
   MACVLAN networks
 - All required firewall configuration to perform NAT and port
   forwarding as required for containers
-- Support for iptables and firewalld at present, with support for
-  nftables planned in a future release
+- Support for iptables, firewalld and nftables
 - Support for rootless containers
 - Support for IPv4 and IPv6
 - Support for container DNS resolution via the aardvark-dns project
