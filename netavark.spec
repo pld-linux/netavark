@@ -1,13 +1,13 @@
 Summary:	Container network stack
 Name:		netavark
-Version:	1.10.2
+Version:	1.10.3
 Release:	1
 License:	Apache v2.0
 Group:		Applications/System
 Source0:	https://github.com/containers/netavark/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	31848142b6cf53f3b22036fcc5db535d
+# Source0-md5:	c3bb97f4a8f5c20172bfd0205c588149
 Source1:	https://github.com/containers/netavark/releases/download/v%{version}/%{name}-v%{version}-vendor.tar.gz
-# Source1-md5:	3bb689c7e24325a91c431f64e6608b8d
+# Source1-md5:	262f401fe421c7aacb1975a0f3ecc173
 URL:		https://github.com/containers/netavark
 BuildRequires:	cargo
 BuildRequires:	go-md2man
