@@ -1,7 +1,7 @@
 Summary:	Container network stack
 Name:		netavark
 Version:	1.12.0
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Applications/System
 Source0:	https://github.com/containers/netavark/archive/v%{version}/%{name}-%{version}.tar.gz
