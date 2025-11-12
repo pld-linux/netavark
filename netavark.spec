@@ -1,19 +1,19 @@
 Summary:	Container network stack
 Name:		netavark
-Version:	1.16.1
+Version:	1.17.0
 Release:	1
 License:	Apache v2.0
 Group:		Applications/System
 Source0:	https://github.com/containers/netavark/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	18d021e3400aa20fe0e6b36258b05bb3
+# Source0-md5:	0e11119acc1b1e2e1ff0006b729fca1e
 Source1:	https://github.com/containers/netavark/releases/download/v%{version}/%{name}-v%{version}-vendor.tar.gz
-# Source1-md5:	f7440635df0f7ea9d82bf6e49702fb4e
+# Source1-md5:	2562694e9fb8538a11704cc2ab8f29f4
 URL:		https://github.com/containers/netavark
 BuildRequires:	cargo
 BuildRequires:	go-md2man
 BuildRequires:	protobuf
 BuildRequires:	rpmbuild(macros) >= 2.050
-BuildRequires:	rust
+BuildRequires:	rust >= 1.86
 %{?rust_req}
 Suggests:	aardvark-dns
 ExclusiveArch:	%{rust_arches}
